@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "messages": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$messageId": {
+        ".validate": "newData.hasChildren(['text', 'userId', 'username', 'timestamp'])",
+        "text": {
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "userId": {
+          ".validate": "newData.isString()"
+        },
+        "username": {
+          ".validate": "newData.isString()"
+        },
+        "timestamp": {
+          ".validate": "newData.isNumber()"
+        }
+      }
+    }
+  }
+}
